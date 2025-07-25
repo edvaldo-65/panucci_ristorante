@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:panucci_ristorante/themes/app_colors.dart';
 
 class HighlightItem extends StatelessWidget {
-const HighlightItem({ Key? key, required this.imageURI, required this.itemTitle, required this.itemPrice, required this.itemDescription}) : super(key: key);
+const HighlightItem({ super.key, required this.imageURI, required this.itemTitle, required this.itemPrice, required this.itemDescription});
 final String imageURI;
 final String itemTitle;
 final String itemPrice;
@@ -12,11 +12,13 @@ final String itemDescription;
   Widget build(BuildContext context){
     return Card(
       clipBehavior: Clip.hardEdge,
-      color: Theme.of(context).colorScheme.surfaceVariant,
+      color: Theme.of(context).colorScheme.surfaceContainerHighest,
       elevation: 0,
       child: Column(
         children: <Widget>[
           Image(
+            height: 120,
+            width: double.infinity,
             image: AssetImage(imageURI),
             fit: BoxFit.cover,
           ),
@@ -26,7 +28,7 @@ final String itemDescription;
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(itemTitle, style: const TextStyle(fontSize: 16),),
-                Text("R\$ " + itemPrice),
+                Text("R\$ $itemPrice"),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Text(itemDescription),

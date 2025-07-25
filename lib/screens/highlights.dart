@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart' show BuildContext,
-CustomScrollView, EdgeInsets, Padding, SliverChildBuilderDelegate,
-SliverList, SliverToBoxAdapter, StatelessWidget, Text, Theme, Widget;
+import 'package:flutter/material.dart';
 import '../cardapio.dart';
 import '../components/highlight_item.dart';
 
@@ -12,13 +10,22 @@ class Highlights extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
       child: CustomScrollView(
         slivers: <Widget>[
           SliverToBoxAdapter(
-            child: Text(
-              "Destaques",
-              style: Theme.of(context).textTheme.headlineSmall,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Text(
+                "Destaques",
+                // style: Theme.of(context).textTheme.headlineSmall,
+                style: TextStyle(
+                    fontFamily: "Caveat",
+                    fontSize: 32,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
           SliverList(
